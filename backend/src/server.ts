@@ -3,6 +3,7 @@ import session from "express-session";
 import pgSession from "connect-pg-simple";
 import { drizzle } from "drizzle-orm";
 import { Pool } from "pg";
+import router from "./routes";
 
 const PgSession = pgSession(session);
 const app = express();
@@ -31,7 +32,9 @@ const pool = new Pool({
 
 export const db = drizzle(pool);
 
-app.get("/health", (req, res) => {
+app.use("/api", router);
+
+app.get("/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
