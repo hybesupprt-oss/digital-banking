@@ -91,7 +91,7 @@ export function PaymentsDashboard({ userId }: PaymentsDashboardProps) {
           <Card>
             <CardHeader>
               <CardTitle>Send Money via ACH</CardTitle>
-              <CardDescription>Transfer money to external bank accounts or other Wells Fargo customers</CardDescription>
+              <CardDescription>Transfer money to external bank accounts or other First City Credit Union customers</CardDescription>
             </CardHeader>
             <CardContent>
               <ACHTransferForm userId={userId} />

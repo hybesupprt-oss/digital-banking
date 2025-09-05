@@ -64,7 +64,7 @@ export function HeroSection() {
               <div className="absolute -inset-4 rounded-2xl bg-accent/20 blur-2xl" />
               <img
                 src="/placeholder-hxw6f.png"
-                alt="Wells Fargo Digital Banking Platform"
+                alt="First City Credit Union Digital Banking Platform"
                 className="relative rounded-2xl shadow-2xl"
               />
             </div>

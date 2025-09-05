@@ -6,21 +6,21 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Small Business Owner",
     content:
-      "Wells Fargo has been instrumental in helping me grow my business. Their business banking solutions and expert guidance have made all the difference.",
+      "First City Credit Union has been instrumental in helping me grow my business. Their business banking solutions and expert guidance have made all the difference.",
     rating: 5,
   },
   {
     name: "Michael Chen",
     role: "First-Time Homebuyer",
     content:
-      "The mortgage process was seamless with Wells Fargo. Their team guided me through every step and helped me secure a great rate for my first home.",
+      "The mortgage process was seamless with First City Credit Union. Their team guided me through every step and helped me secure a great rate for my first home.",
     rating: 5,
   },
   {
     name: "Lisa Rodriguez",
     role: "Retirement Planner",
     content:
-      "Their investment advisors helped me create a comprehensive retirement strategy. I feel confident about my financial future with Wells Fargo.",
+      "Their investment advisors helped me create a comprehensive retirement strategy. I feel confident about my financial future with First City Credit Union.",
     rating: 5,
   },
 ]
@@ -41,7 +41,7 @@ export function TrustSection() {
             Trusted by Millions
           </h2>
           <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            See why customers choose Wells Fargo for their banking needs
+            See why customers choose First City Credit Union for their banking needs
           </p>
         </div>
 

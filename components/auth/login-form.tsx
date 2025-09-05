@@ -119,7 +119,7 @@ export function LoginForm() {
       </div>
 
       <div className="text-center pt-2 border-t border-border">
-        <p className="text-sm text-muted-foreground mb-2">New to Wells Fargo?</p>
+        <p className="text-sm text-muted-foreground mb-2">New to First City Credit Union?</p>
         <Button
           variant="outline"
           className="w-full bg-transparent border-border hover:bg-muted"

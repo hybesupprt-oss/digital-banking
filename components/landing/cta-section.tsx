@@ -9,7 +9,7 @@ export function CTASection() {
         <div className="text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Ready to Get Started?</h2>
           <p className="mt-4 text-pretty text-xl text-primary-foreground/90">
-            Join millions of customers who trust Wells Fargo with their financial future. Open your account today and
+            Join millions of customers who trust First City Credit Union with their financial future. Open your account today and
             experience banking that works for you.
           </p>
         </div>

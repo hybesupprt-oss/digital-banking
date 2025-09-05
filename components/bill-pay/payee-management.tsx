@@ -27,7 +27,7 @@ export function PayeeManagement() {
       setPayees([
         {
           id: "1",
-          name: "Wells Fargo Credit Card",
+          name: "First City Credit Union Credit Card",
           category: "Credit Card",
           account_number: "****4567",
           last_payment: "2024-01-15",
@@ -51,7 +51,7 @@ export function PayeeManagement() {
         },
         {
           id: "4",
-          name: "Wells Fargo Mortgage",
+          name: "First City Credit Union Mortgage",
           category: "Mortgage",
           account_number: "****6789",
           last_payment: "2024-01-01",

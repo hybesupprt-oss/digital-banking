@@ -13,7 +13,7 @@ export function QuickPay() {
   const [selectedPayee, setSelectedPayee] = useState("")
   const [paymentDate, setPaymentDate] = useState("")
 
-  const quickPayees = ["Wells Fargo Credit Card", "Pacific Gas & Electric", "Comcast", "Wells Fargo Mortgage"]
+  const quickPayees = ["First City Credit Union Credit Card", "Pacific Gas & Electric", "Comcast", "First City Credit Union Mortgage"]
 
   return (
     <div className="space-y-6">

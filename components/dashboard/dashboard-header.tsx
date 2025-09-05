@@ -58,7 +58,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
                 <Shield className="h-8 w-8 text-accent-foreground" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">Wells Fargo</h1>
+                <h1 className="text-2xl font-bold tracking-tight">First City Credit Union</h1>
                 <p className="text-sm text-primary-foreground/90 font-medium">Digital Banking</p>
               </div>
             </div>
