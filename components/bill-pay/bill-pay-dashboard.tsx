@@ -37,7 +37,7 @@ export function BillPayDashboard() {
       setRecentPayments([
         {
           id: "1",
-          payee: "Wells Fargo Credit Card",
+          payee: "First City Credit Union Credit Card",
           amount: 250.0,
           due_date: "2024-01-15",
           status: "completed",
@@ -83,7 +83,7 @@ export function BillPayDashboard() {
         },
         {
           id: "3",
-          payee: "Wells Fargo Mortgage",
+          payee: "First City Credit Union Mortgage",
           amount: 1850.0,
           next_payment: "2024-02-01",
           frequency: "Monthly",

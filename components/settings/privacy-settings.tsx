@@ -30,7 +30,7 @@ export function PrivacySettings() {
                 Data Sharing with Partners
               </Label>
               <p className="text-sm text-muted-foreground">
-                Allow Wells Fargo to share your data with trusted partners for better services
+                Allow First City Credit Union to share your data with trusted partners for better services
               </p>
             </div>
             <Switch id="data-sharing" checked={dataSharing} onCheckedChange={setDataSharing} />
@@ -89,7 +89,7 @@ export function PrivacySettings() {
             <AlertTriangle className="w-5 h-5" />
             <span>Account Closure</span>
           </CardTitle>
-          <CardDescription>Permanently close your Wells Fargo account</CardDescription>
+          <CardDescription>Permanently close your First City Credit Union account</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground mb-4">

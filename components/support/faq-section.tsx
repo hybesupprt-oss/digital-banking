@@ -24,7 +24,7 @@ export function FAQSection() {
       category: "Transfers",
       question: "What are the limits for online transfers?",
       answer:
-        "Daily transfer limits are $5,000 for external transfers and $25,000 for internal transfers between your Wells Fargo accounts. Monthly limits may apply based on your account type.",
+        "Daily transfer limits are $5,000 for external transfers and $25,000 for internal transfers between your First City Credit Union accounts. Monthly limits may apply based on your account type.",
     },
     {
       id: "3",

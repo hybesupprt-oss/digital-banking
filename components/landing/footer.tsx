@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="text-2xl font-bold text-primary">Wells Fargo</div>
+            <div className="text-2xl font-bold text-primary">First City Credit Union</div>
             <p className="mt-4 text-sm text-background/80">
               Banking built for your financial future. Member FDIC. Equal Housing Lender.
             </p>
@@ -101,7 +101,7 @@ export function Footer() {
         <div className="mt-12 border-t border-background/20 pt-8">
           <div className="flex flex-col items-center justify-between sm:flex-row">
             <p className="text-sm text-background/60">
-              © 2024 Wells Fargo Bank, N.A. All rights reserved. NMLSR ID 399801
+              © 2024 First City Credit Union Bank, N.A. All rights reserved. NMLSR ID 399801
             </p>
             <div className="mt-4 flex space-x-6 sm:mt-0">
               <Link href="#" className="text-sm text-background/60 hover:text-primary">

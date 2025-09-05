@@ -187,7 +187,7 @@ export function SupportDashboard() {
 
               <div className="space-y-3 mb-4">
                 <div className="bg-primary/10 p-3 rounded-lg max-w-xs">
-                  <p className="text-sm">Hello! I'm Sarah from Wells Fargo support. How can I help you today?</p>
+                  <p className="text-sm">Hello! I'm Sarah from First City Credit Union support. How can I help you today?</p>
                   <p className="text-xs text-muted-foreground mt-1">2:34 PM</p>
                 </div>
               </div>

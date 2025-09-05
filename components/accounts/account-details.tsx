@@ -79,7 +79,7 @@ export function AccountDetails() {
         <div className="flex items-center justify-between">
           <div>
             <CardTitle className="text-xl">Account Details</CardTitle>
-            <CardDescription>Comprehensive view of your Wells Fargo accounts</CardDescription>
+            <CardDescription>Comprehensive view of your First City Credit Union accounts</CardDescription>
           </div>
           <Button variant="outline" size="sm" onClick={() => setShowBalances(!showBalances)}>
             {showBalances ? <EyeOff className="w-4 h-4 mr-2" /> : <Eye className="w-4 h-4 mr-2" />}

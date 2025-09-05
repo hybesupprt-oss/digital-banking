@@ -6,7 +6,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-50 to-red-100 p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-primary mb-2">Wells Fargo</h1>
+          <h1 className="text-3xl font-bold text-primary mb-2">First City Credit Union</h1>
           <p className="text-muted-foreground">Digital Banking</p>
         </div>
 
@@ -26,7 +26,7 @@ export default function LoginPage() {
           <p>
             Need help? Contact us at <span className="font-medium text-foreground">support@wellsfargo.com</span>
           </p>
-          <p className="mt-2">© 2024 Wells Fargo Bank, N.A. All rights reserved.</p>
+          <p className="mt-2">© 2024 First City Credit Union Bank, N.A. All rights reserved.</p>
         </div>
       </div>
     </div>
