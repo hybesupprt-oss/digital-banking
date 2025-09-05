@@ -5,13 +5,19 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Home, ArrowLeftRight, FileText, Shield, LogOut } from "lucide-react"
+import { Menu, Home, ArrowLeftRight, FileText, Shield, LogOut, CreditCard, Settings, Receipt } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: Home },
+  { name: "Accounts", href: "/accounts", icon: CreditCard },
   { name: "Transfer", href: "/transfer", icon: ArrowLeftRight },
+  { name: "Bill Pay", href: "/bill-pay", icon: Receipt },
   { name: "Transactions", href: "/transactions", icon: FileText },
+  { name: "Statements", href: "/statements", icon: Receipt },
+  { name: "Loans", href: "/loans", icon: CreditCard }, // Added loans navigation
+  { name: "Support", href: "/support", icon: Shield },
+  { name: "Settings", href: "/settings", icon: Settings },
   { name: "KYC Verification", href: "/kyc", icon: Shield },
 ]
 
