@@ -94,7 +94,11 @@ export function LoginForm() {
         </div>
       </div>
 
-      <Button type="submit" className="w-full h-11 bg-blue-600 hover:bg-blue-700" disabled={isLoading}>
+      <Button
+        type="submit"
+        className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground"
+        disabled={isLoading}
+      >
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -109,14 +113,18 @@ export function LoginForm() {
       </Button>
 
       <div className="text-center pt-4">
-        <Button variant="link" className="text-sm text-blue-600 hover:text-blue-800">
+        <Button variant="link" className="text-sm text-primary hover:text-primary/80">
           Forgot your password?
         </Button>
       </div>
 
-      <div className="text-center pt-2 border-t">
-        <p className="text-sm text-gray-600 mb-2">New to First City Credit Union?</p>
-        <Button variant="outline" className="w-full bg-transparent" onClick={() => router.push("/signup")}>
+      <div className="text-center pt-2 border-t border-border">
+        <p className="text-sm text-muted-foreground mb-2">New to Wells Fargo?</p>
+        <Button
+          variant="outline"
+          className="w-full bg-transparent border-border hover:bg-muted"
+          onClick={() => router.push("/signup")}
+        >
           Open an Account
         </Button>
       </div>
