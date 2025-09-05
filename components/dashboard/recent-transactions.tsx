@@ -61,11 +61,22 @@ const mockTransactions = [
   },
 ]
 
-export async function RecentTransactions({ userId }: RecentTransactionsProps) {
-  // In production, fetch real transaction data:
-  // const transactions = await sql`SELECT * FROM transactions WHERE from_account_id IN (SELECT id FROM accounts WHERE user_id = ${userId}) OR to_account_id IN (SELECT id FROM accounts WHERE user_id = ${userId}) ORDER BY created_at DESC LIMIT 10`
+import { useQuery } from "@tanstack/react-query"
 
-  const transactions = mockTransactions
+export function RecentTransactions({ userId }: RecentTransactionsProps) {
+  const fetchTransactions = async () => {
+    const res = await fetch(`/api/transactions?userId=${userId}`)
+    if (!res.ok) throw new Error("Failed to fetch transactions")
+    return res.json()
+  }
+
+  const { data: transactions = [], isLoading, error } = useQuery({
+    queryKey: ["transactions", userId],
+    queryFn: fetchTransactions,
+  })
+
+  if (isLoading) return <div>Loading transactions...</div>
+  if (error) return <div>Error loading transactions</div>
 
   const getTransactionIcon = (category: string, type: string) => {
     if (type === "transfer") return <ArrowUpRight className="h-4 w-4" />
@@ -108,7 +119,7 @@ export async function RecentTransactions({ userId }: RecentTransactionsProps) {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {transactions.map((transaction) => (
+          {transactions.map((transaction: any) => (
             <div
               key={transaction.id}
               className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors"
