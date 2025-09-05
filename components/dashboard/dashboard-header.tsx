@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
-import { User, Settings, LogOut, Shield, Bell, Menu, X } from "lucide-react"
+import { User, LogOut, Shield, Bell, Menu, X } from "lucide-react"
 import type { User as UserType } from "@/lib/auth"
 
 interface DashboardHeaderProps {
@@ -49,40 +49,55 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
   }
 
   return (
-    <header className="bg-primary text-primary-foreground shadow-lg">
+    <header className="bg-primary text-primary-foreground shadow-lg border-b-4 border-accent">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo and Brand */}
+        <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Shield className="h-8 w-8" />
+            <div className="flex items-center space-x-3">
+              <div className="bg-accent p-2 rounded-full">
+                <Shield className="h-8 w-8 text-accent-foreground" />
+              </div>
               <div>
-                <h1 className="text-xl font-bold">First City Credit Union</h1>
-                <p className="text-xs text-primary-foreground/80">Secure Digital Banking</p>
+                <h1 className="text-2xl font-bold tracking-tight">Wells Fargo</h1>
+                <p className="text-sm text-primary-foreground/90 font-medium">Digital Banking</p>
               </div>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
+          <nav className="hidden md:flex items-center space-x-8">
+            <Button
+              variant="ghost"
+              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              onClick={() => router.push("/dashboard")}
+            >
               Accounts
             </Button>
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
-              Transfer
+            <Button
+              variant="ghost"
+              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              onClick={() => router.push("/transfer")}
+            >
+              Transfer Money
             </Button>
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
-              Pay Bills
+            <Button
+              variant="ghost"
+              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              onClick={() => router.push("/transactions")}
+            >
+              Transactions
             </Button>
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
+            <Button
+              variant="ghost"
+              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+            >
               Services
             </Button>
           </nav>
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
-            {/* Notifications */}
-            <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
+            <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10 p-2">
               <Bell className="h-5 w-5" />
             </Button>
 
@@ -91,46 +106,49 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="flex items-center space-x-2 text-primary-foreground hover:bg-primary-foreground/10"
+                  className="flex items-center space-x-3 text-primary-foreground hover:bg-primary-foreground/10 px-3 py-2"
                 >
-                  <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-accent text-accent-foreground">
+                  <Avatar className="h-10 w-10 border-2 border-accent">
+                    <AvatarFallback className="bg-accent text-accent-foreground font-bold text-lg">
                       {user.firstName[0]}
                       {user.lastName[0]}
                     </AvatarFallback>
                   </Avatar>
                   <div className="hidden md:block text-left">
-                    <p className="text-sm font-medium">
+                    <p className="text-sm font-semibold">
                       {user.firstName} {user.lastName}
                     </p>
-                    <Badge variant="secondary" className={`text-xs ${getKycStatusColor(user.kycStatus)}`}>
+                    <Badge variant="secondary" className={`text-xs font-medium ${getKycStatusColor(user.kycStatus)}`}>
                       {user.kycStatus.replace("_", " ").toUpperCase()}
                     </Badge>
                   </div>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>
-                  <div>
-                    <p className="font-medium">
+              <DropdownMenuContent align="end" className="w-64 bg-card border-border shadow-lg">
+                <DropdownMenuLabel className="pb-3">
+                  <div className="space-y-1">
+                    <p className="font-semibold text-base">
                       {user.firstName} {user.lastName}
                     </p>
                     <p className="text-sm text-muted-foreground">{user.email}</p>
+                    <Badge variant="secondary" className={`text-xs ${getKycStatusColor(user.kycStatus)}`}>
+                      Account Status: {user.kycStatus.replace("_", " ").toUpperCase()}
+                    </Badge>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => router.push("/profile")}>
-                  <User className="mr-2 h-4 w-4" />
-                  Profile
+                <DropdownMenuItem onClick={() => router.push("/profile")} className="py-3">
+                  <User className="mr-3 h-4 w-4" />
+                  <span className="font-medium">Profile & Settings</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push("/settings")}>
-                  <Settings className="mr-2 h-4 w-4" />
-                  Settings
+                <DropdownMenuItem onClick={() => router.push("/kyc")} className="py-3">
+                  <Shield className="mr-3 h-4 w-4" />
+                  <span className="font-medium">Identity Verification</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout} className="text-destructive">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Sign Out
+                <DropdownMenuItem onClick={handleLogout} className="text-destructive py-3">
+                  <LogOut className="mr-3 h-4 w-4" />
+                  <span className="font-medium">Sign Out Securely</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -150,17 +168,32 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-primary-foreground/20">
-            <nav className="flex flex-col space-y-2">
-              <Button variant="ghost" className="justify-start text-primary-foreground hover:bg-primary-foreground/10">
+            <nav className="flex flex-col space-y-3">
+              <Button
+                variant="ghost"
+                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                onClick={() => router.push("/dashboard")}
+              >
                 Accounts
               </Button>
-              <Button variant="ghost" className="justify-start text-primary-foreground hover:bg-primary-foreground/10">
-                Transfer
+              <Button
+                variant="ghost"
+                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                onClick={() => router.push("/transfer")}
+              >
+                Transfer Money
               </Button>
-              <Button variant="ghost" className="justify-start text-primary-foreground hover:bg-primary-foreground/10">
-                Pay Bills
+              <Button
+                variant="ghost"
+                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                onClick={() => router.push("/transactions")}
+              >
+                Transactions
               </Button>
-              <Button variant="ghost" className="justify-start text-primary-foreground hover:bg-primary-foreground/10">
+              <Button
+                variant="ghost"
+                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+              >
                 Services
               </Button>
             </nav>
