@@ -15,8 +15,7 @@ export function HeroSection() {
                 <span className="block text-accent"> Financial Future</span>
               </h1>
               <p className="text-pretty text-xl text-primary-foreground/90 sm:text-2xl">
-                Experience banking that puts your goals first. From everyday checking to investment planning, Wells
-                Fargo delivers the tools and expertise you need to succeed.
+                Experience banking that puts your goals first. From everyday checking to investment planning, First City Credit Union delivers the tools and expertise you need to succeed.
               </p>
             </div>
 
