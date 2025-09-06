@@ -7,7 +7,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="text-2xl font-bold text-primary">First City Credit Union</div>
+            <div className="flex items-center gap-3">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F44ae5eb1081644219977cce4891b7752%2F02932fabb0af4e07bbcffc50c2cc28f6?format=webp&width=128"
+                alt="First City Credit Union logo"
+                className="h-8 w-auto"
+              />
+              <div className="text-2xl font-bold text-primary">First City Credit Union</div>
+            </div>
             <p className="mt-4 text-sm text-background/80">
               Banking built for your financial future. Member FDIC. Equal Housing Lender.
             </p>
