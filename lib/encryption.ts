@@ -18,11 +18,15 @@ export interface EncryptedData {
 export function encryptPII(data: string): EncryptedData {
   const key = Buffer.from(MASTER_KEY, "hex")
   const iv = crypto.randomBytes(IV_LENGTH)
-  const cipher = crypto.createCipheriv(ALGORITHM, key, iv)
-  cipher.setAAD(Buffer.from("banking-pii"))
+    // cast to any to satisfy TypeScript overloads while preserving Node runtime types
+    const cipher = crypto.createCipheriv(ALGORITHM, key as any, iv as any)
+  // Node Buffer -> cast to Uint8Array for TypeScript crypto typings
+  cipher.setAAD(Buffer.from("banking-pii") as unknown as Uint8Array)
 
-  const encryptedBuf = Buffer.concat([cipher.update(Buffer.from(data, "utf8")), cipher.final()])
-  const tag = cipher.getAuthTag()
+  const chunk1 = Buffer.from(cipher.update(Buffer.from(data, "utf8") as any) as any)
+  const chunk2 = Buffer.from(cipher.final() as any)
+  const encryptedBuf = Buffer.concat([chunk1, chunk2]) as Buffer
+  const tag = (cipher.getAuthTag() as Buffer)
   const encrypted = encryptedBuf.toString("hex")
 
   return {
@@ -35,11 +39,15 @@ export function encryptPII(data: string): EncryptedData {
 export function decryptPII(encryptedData: EncryptedData): string {
   const key = Buffer.from(MASTER_KEY, "hex")
   const iv = Buffer.from(encryptedData.iv, "hex")
-  const decipher = crypto.createDecipheriv(ALGORITHM, key, iv)
-  decipher.setAAD(Buffer.from("banking-pii"))
-  decipher.setAuthTag(Buffer.from(encryptedData.tag, "hex"))
+    // cast to any to satisfy TypeScript overloads while preserving Node runtime types
+    const decipher = crypto.createDecipheriv(ALGORITHM, key as any, iv as any)
+  // Node Buffer -> cast to Uint8Array for TypeScript crypto typings
+  decipher.setAAD(Buffer.from("banking-pii") as unknown as Uint8Array)
+  decipher.setAuthTag(Buffer.from(encryptedData.tag, "hex") as unknown as Uint8Array)
 
-  const decryptedBuf = Buffer.concat([decipher.update(Buffer.from(encryptedData.encrypted, "hex")), decipher.final()])
+  const dchunk1 = Buffer.from(decipher.update(Buffer.from(encryptedData.encrypted, "hex") as any) as any)
+  const dchunk2 = Buffer.from(decipher.final() as any)
+  const decryptedBuf = Buffer.concat([dchunk1, dchunk2]) as Buffer
   return decryptedBuf.toString("utf8")
 }
 
