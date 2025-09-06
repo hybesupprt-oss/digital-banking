@@ -62,9 +62,9 @@ export function HeroSection() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-accent/20 blur-2xl" />
               <img
-                src="/placeholder-hxw6f.png"
-                alt="First City Credit Union Digital Banking Platform"
-                className="relative rounded-2xl shadow-2xl"
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
+                alt="Professionally dressed people discussing banking solutions"
+                className="relative rounded-2xl shadow-2xl object-cover max-h-[420px]"
               />
             </div>
           </div>
