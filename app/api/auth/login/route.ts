@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     // Check if user account is active
     // the DB helper returns camelCase fields via lib/auth.getUserByEmail
-    if ((user as any).is_active === false) {
+  if ((user as any).is_active === false) {
       return NextResponse.json({ error: "Account is inactive. Please contact support." }, { status: 401 })
     }
 
@@ -32,10 +32,10 @@ export async function POST(request: NextRequest) {
       {
         id: user.id,
         email: user.email,
-        firstName: (user as any).firstName ?? user.first_name,
-        lastName: (user as any).lastName ?? user.last_name,
+        firstName: (user as any).firstName ?? (user as any)["first_name"],
+        lastName: (user as any).lastName ?? (user as any)["last_name"],
         role: user.role,
-        kycStatus: (user as any).kycStatus ?? user.kyc_status,
+        kycStatus: (user as any).kycStatus ?? (user as any)["kyc_status"],
       },
       request,
     )
@@ -45,10 +45,10 @@ export async function POST(request: NextRequest) {
       user: {
         id: user.id,
         email: user.email,
-        firstName: (user as any).firstName ?? user.first_name,
-        lastName: (user as any).lastName ?? user.last_name,
-        role: user.role,
-        kycStatus: (user as any).kycStatus ?? user.kyc_status,
+  firstName: (user as any).firstName ?? (user as any)["first_name"],
+  lastName: (user as any).lastName ?? (user as any)["last_name"],
+  role: user.role,
+  kycStatus: (user as any).kycStatus ?? (user as any)["kyc_status"],
       },
     })
   } catch (error) {
