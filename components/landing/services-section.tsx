@@ -46,13 +46,13 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Complete Banking Solutions
+          <h2 className="text-balance text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            All Your Financial Needs, In One Place
           </h2>
-          <p className="mt-4 text-pretty text-lg text-muted-foreground">
+          <p className="mt-4 text-pretty text-lg text-gray-600">
             From personal banking to business solutions, we offer comprehensive financial services to help you achieve
             your goals at every stage of life.
           </p>
@@ -62,24 +62,24 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden border-border/50 bg-card hover:shadow-lg transition-all duration-300"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-6 w-6 text-primary" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
+                    <service.icon className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <CardTitle className="text-xl text-card-foreground">{service.title}</CardTitle>
+                    <CardTitle className="text-xl font-semibold text-gray-900">{service.title}</CardTitle>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <CardDescription className="text-muted-foreground">{service.description}</CardDescription>
+              <CardContent className="flex flex-grow flex-col space-y-4">
+                <CardDescription className="text-gray-600 flex-grow">{service.description}</CardDescription>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                      <div className="mr-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
+                      <div className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
                       {feature}
                     </li>
                   ))}
@@ -87,7 +87,7 @@ export function ServicesSection() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors bg-transparent"
+                  className="w-full mt-auto border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
                 >
                   Learn More
                 </Button>

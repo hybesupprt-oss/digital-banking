@@ -1,0 +1,6 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="200" fill="#00529B"/>
+<path d="M50 75L100 25L150 75V125L100 175L50 125V75Z" fill="white"/>
+<path d="M75 90L100 75L125 90V110L100 125L75 110V90Z" fill="#00529B"/>
+<text x="35" y="190" font-family="Arial, sans-serif" font-size="24" fill="white" font-weight="bold">First City</text>
+</svg>

@@ -34,73 +34,73 @@ const awards = [
 
 export function TrustSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Trusted by Millions
+          <h2 className="text-balance text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            Building Trust, One Member at a Time
           </h2>
-          <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            See why customers choose First City Credit Union for their banking needs
+          <p className="mt-4 text-pretty text-lg text-gray-600">
+            See why millions of members trust First City Credit Union for their financial needs.
           </p>
         </div>
 
         {/* Trust Statistics */}
         <div className="mt-16 grid grid-cols-2 gap-8 lg:grid-cols-4">
-          <div className="text-center">
-            <div className="flex justify-center">
-              <Users className="h-12 w-12 text-primary" />
+          <div className="flex flex-col items-center text-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+              <Users className="h-8 w-8 text-blue-600" />
             </div>
             <div className="mt-4">
-              <div className="text-3xl font-bold text-foreground">70M+</div>
-              <div className="text-sm text-muted-foreground">Active Customers</div>
+              <div className="text-3xl font-bold text-gray-900">70M+</div>
+              <div className="text-sm text-gray-600">Active Members</div>
             </div>
           </div>
-          <div className="text-center">
-            <div className="flex justify-center">
-              <Shield className="h-12 w-12 text-primary" />
+          <div className="flex flex-col items-center text-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+              <Shield className="h-8 w-8 text-blue-600" />
             </div>
             <div className="mt-4">
-              <div className="text-3xl font-bold text-foreground">$1.9T</div>
-              <div className="text-sm text-muted-foreground">Assets Under Management</div>
+              <div className="text-3xl font-bold text-gray-900">$1.9T</div>
+              <div className="text-sm text-gray-600">Assets Managed</div>
             </div>
           </div>
-          <div className="text-center">
-            <div className="flex justify-center">
-              <Award className="h-12 w-12 text-primary" />
+          <div className="flex flex-col items-center text-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+              <Award className="h-8 w-8 text-blue-600" />
             </div>
             <div className="mt-4">
-              <div className="text-3xl font-bold text-foreground">150+</div>
-              <div className="text-sm text-muted-foreground">Years of Service</div>
+              <div className="text-3xl font-bold text-gray-900">150+</div>
+              <div className="text-sm text-gray-600">Years of Service</div>
             </div>
           </div>
-          <div className="text-center">
-            <div className="flex justify-center">
-              <Star className="h-12 w-12 text-primary" />
+          <div className="flex flex-col items-center text-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+              <Star className="h-8 w-8 text-blue-600" />
             </div>
             <div className="mt-4">
-              <div className="text-3xl font-bold text-foreground">4.8/5</div>
-              <div className="text-sm text-muted-foreground">Customer Rating</div>
+              <div className="text-3xl font-bold text-gray-900">4.8/5</div>
+              <div className="text-sm text-gray-600">Member Rating</div>
             </div>
           </div>
         </div>
 
         {/* Customer Testimonials */}
         <div className="mt-24">
-          <h3 className="text-center text-2xl font-bold text-foreground mb-12">What Our Customers Say</h3>
+          <h3 className="text-center text-2xl font-bold text-gray-900 mb-12">What Our Members Say</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-card border-border/50">
+              <Card key={index} className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <blockquote className="text-card-foreground mb-4">"{testimonial.content}"</blockquote>
+                  <blockquote className="text-gray-700 mb-4">"{testimonial.content}"</blockquote>
                   <div>
-                    <div className="font-semibold text-card-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">{testimonial.role}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -110,13 +110,15 @@ export function TrustSection() {
 
         {/* Awards */}
         <div className="mt-24">
-          <h3 className="text-center text-2xl font-bold text-foreground mb-12">Industry Recognition</h3>
+          <h3 className="text-center text-2xl font-bold text-gray-900 mb-12">Industry Recognition</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {awards.map((award, index) => (
-              <div key={index} className="text-center p-6 rounded-lg bg-muted/50">
-                <Award className="h-8 w-8 text-accent mx-auto mb-3" />
-                <div className="font-semibold text-foreground">{award.title}</div>
-                <div className="text-sm text-muted-foreground mt-1">{award.organization}</div>
+              <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg bg-white border border-gray-200 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 mb-4">
+                  <Award className="h-6 w-6 text-blue-600" />
+                </div>
+                <div className="font-semibold text-gray-900">{award.title}</div>
+                <div className="text-sm text-gray-500 mt-1">{award.organization}</div>
               </div>
             ))}
           </div>
