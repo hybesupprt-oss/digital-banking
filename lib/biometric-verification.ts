@@ -276,14 +276,14 @@ export class BiometricVerificationService {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
       // Mock screening results (in production, check against real watchlists)
-      const matches = []
+  const matches: any[] = []
       const riskLevel = "low"
       const requiresManualReview = false
 
       console.log("[v0] AML screening completed - No matches found")
 
       return {
-        matches,
+  matches,
         riskLevel,
         requiresManualReview,
       }

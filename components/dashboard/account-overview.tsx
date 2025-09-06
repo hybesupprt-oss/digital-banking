@@ -38,7 +38,7 @@ const mockAccounts = [
   },
 ]
 
-export async function AccountOverview({ userId }: AccountOverviewProps) {
+export function AccountOverview({ userId }: AccountOverviewProps) {
   // In production, fetch real account data:
   // const accounts = await sql`SELECT * FROM accounts WHERE user_id = ${userId} AND account_status = 'active'`
 

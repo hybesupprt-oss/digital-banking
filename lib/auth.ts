@@ -2,6 +2,7 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { updateUserLastLogin, createAuditLog } from "./db"
 import { sql } from "./db"
+import nodeCrypto from "crypto"
 
 export interface User {
   id: string
@@ -22,7 +23,7 @@ export interface Session {
 const sessions = new Map<string, Session>()
 
 export async function createSession(user: User, request?: Request): Promise<string> {
-  const sessionId = crypto.randomUUID()
+  const sessionId = nodeCrypto.randomUUID()
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000) // 24 hours
 
   const session: Session = {

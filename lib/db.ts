@@ -5,7 +5,8 @@ const usingRealDB = Boolean(process.env.DATABASE_URL)
 let sql: any
 
 if (usingRealDB) {
-  sql = neon(process.env.DATABASE_URL)
+  // neon expects a string; cast here so TypeScript is satisfied. In CI/prod, DATABASE_URL should be set.
+  sql = neon(process.env.DATABASE_URL as string)
 } else {
   // Fallback tagged-template function for local dev when DATABASE_URL isn't set.
   // Returns empty arrays or resolves basic in-memory operations used by helpers below.

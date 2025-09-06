@@ -1,4 +1,5 @@
 import { sql } from "./db"
+import nodeCrypto from "crypto"
 
 export interface CryptoWallet {
   id: string
@@ -56,7 +57,7 @@ export class CryptoWalletManager {
       const address = this.generateBitcoinAddress(keyPair.publicKey)
 
       const wallet: CryptoWallet = {
-        id: crypto.randomUUID(),
+    id: nodeCrypto.randomUUID(),
         userId,
         type: "bitcoin",
         publicKey: keyPair.publicKey,
@@ -95,7 +96,7 @@ export class CryptoWalletManager {
       const lightningAddress = `${userId}@wellsfargo-lightning.com`
 
       const wallet: CryptoWallet = {
-        id: crypto.randomUUID(),
+  id: nodeCrypto.randomUUID(),
         userId,
         type: "lightning",
         publicKey: keyPair.publicKey,
@@ -133,7 +134,7 @@ export class CryptoWalletManager {
       const keyPair = this.generateStellarKeyPair()
 
       const wallet: CryptoWallet = {
-        id: crypto.randomUUID(),
+    id: nodeCrypto.randomUUID(),
         userId,
         type: "stellar",
         publicKey: keyPair.publicKey,
@@ -362,28 +363,28 @@ export class CryptoWalletManager {
   private generateBitcoinKeyPair(): { publicKey: string; privateKey: string } {
     // Simulate Bitcoin key generation
     return {
-      publicKey: `03${crypto.randomBytes(32).toString("hex")}`,
-      privateKey: crypto.randomBytes(32).toString("hex"),
+  publicKey: `03${nodeCrypto.randomBytes(32).toString("hex")}`,
+  privateKey: nodeCrypto.randomBytes(32).toString("hex"),
     }
   }
 
   private generateLightningKeyPair(): { publicKey: string; privateKey: string } {
     // Simulate Lightning key generation
     return {
-      publicKey: `02${crypto.randomBytes(32).toString("hex")}`,
-      privateKey: crypto.randomBytes(32).toString("hex"),
+  publicKey: `02${nodeCrypto.randomBytes(32).toString("hex")}`,
+  privateKey: nodeCrypto.randomBytes(32).toString("hex"),
     }
   }
 
   private generateStellarKeyPair(): { publicKey: string; privateKey: string } {
     // Simulate Stellar key generation
     return {
-      publicKey: `G${crypto
+      publicKey: `G${nodeCrypto
         .randomBytes(28)
         .toString("base64")
         .replace(/[^A-Z0-9]/g, "")
         .substring(0, 55)}`,
-      privateKey: `S${crypto
+      privateKey: `S${nodeCrypto
         .randomBytes(28)
         .toString("base64")
         .replace(/[^A-Z0-9]/g, "")
@@ -393,7 +394,7 @@ export class CryptoWalletManager {
 
   private generateBitcoinAddress(publicKey: string): string {
     // Simulate Bitcoin address generation
-    return `bc1q${crypto.randomBytes(20).toString("hex")}`
+  return `bc1q${nodeCrypto.randomBytes(20).toString("hex")}`
   }
 
   private async encryptPrivateKey(privateKey: string, userId: string): Promise<string> {
@@ -402,7 +403,7 @@ export class CryptoWalletManager {
   }
 
   private generateTxHash(): string {
-    return crypto.randomBytes(32).toString("hex")
+  return nodeCrypto.randomBytes(32).toString("hex")
   }
 
   private calculateBitcoinFees(amount: number): number {

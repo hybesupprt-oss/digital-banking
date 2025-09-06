@@ -99,7 +99,8 @@ export function checkRateLimit(identifier: string, maxRequests: number, windowMs
 
 // Multi-factor authentication utilities
 export function generateMFASecret(): string {
-  return crypto.randomBytes(20).toString("base32")
+  // Node's crypto does not support base32 encoding via toString; use hex instead for deterministic IDs
+  return crypto.randomBytes(20).toString("hex")
 }
 
 export function generateMFABackupCodes(): string[] {
