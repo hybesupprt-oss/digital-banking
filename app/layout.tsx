@@ -4,7 +4,8 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Suspense } from "react"
 import "./globals.css"
-import PageTransitions from "../components/transition/page-transitions"
+import dynamic from "next/dynamic"
+const PageTransitions = dynamic(() => import("../components/transition/page-transitions"), { ssr: false })
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
