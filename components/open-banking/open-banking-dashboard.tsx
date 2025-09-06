@@ -19,7 +19,7 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react"
-import { OpenBankingService, type LinkedAccount, type ExternalTransaction } from "@/lib/open-banking"
+import type { LinkedAccount, ExternalTransaction } from "@/lib/open-banking"
 
 interface OpenBankingDashboardProps {
   userId: string
@@ -33,8 +33,6 @@ export function OpenBankingDashboard({ userId }: OpenBankingDashboardProps) {
   const [syncing, setSyncing] = useState(false)
   const [activeTab, setActiveTab] = useState("overview")
 
-  const openBankingService = OpenBankingService.getInstance()
-
   useEffect(() => {
     loadAccountData()
   }, [userId])
@@ -42,10 +40,12 @@ export function OpenBankingDashboard({ userId }: OpenBankingDashboardProps) {
   const loadAccountData = async () => {
     try {
       setLoading(true)
-      const overview = await openBankingService.getAggregatedAccountOverview(userId)
-      setAccounts(overview.accounts)
-      setTransactions(overview.recentTransactions)
-      setTotalBalance(overview.totalBalance)
+      const res = await fetch(`/api/open-banking/overview?userId=${encodeURIComponent(userId)}`)
+      if (!res.ok) throw new Error('Failed to fetch overview')
+      const overview = await res.json()
+      setAccounts(overview.accounts || [])
+      setTransactions(overview.recentTransactions || [])
+      setTotalBalance(overview.totalBalance || 0)
     } catch (error) {
       console.error("Failed to load account data:", error)
     } finally {
@@ -56,7 +56,8 @@ export function OpenBankingDashboard({ userId }: OpenBankingDashboardProps) {
   const handleSyncBalances = async () => {
     try {
       setSyncing(true)
-      await openBankingService.syncAccountBalances(userId)
+      const res = await fetch('/api/open-banking/sync', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ userId }) })
+      if (!res.ok) throw new Error('Sync failed')
       await loadAccountData()
     } catch (error) {
       console.error("Failed to sync balances:", error)
@@ -67,11 +68,11 @@ export function OpenBankingDashboard({ userId }: OpenBankingDashboardProps) {
 
   const handleLinkAccount = async () => {
     try {
-      const providers = await openBankingService.getSupportedProviders("US")
-      // In a real app, show provider selection modal
-      console.log("Available providers:", providers)
+      const res = await fetch('/api/open-banking/providers?country=US')
+      const data = await res.json()
+      console.log('Available providers:', data.providers)
     } catch (error) {
-      console.error("Failed to get providers:", error)
+      console.error('Failed to get providers:', error)
     }
   }
 

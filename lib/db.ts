@@ -1,12 +1,40 @@
 import { neon } from "@neondatabase/serverless"
+import postgres from "postgres"
 
 const usingRealDB = Boolean(process.env.DATABASE_URL)
 
 let sql: any
 
 if (usingRealDB) {
-  // neon expects a string; cast here so TypeScript is satisfied. In CI/prod, DATABASE_URL should be set.
-  sql = neon(process.env.DATABASE_URL as string)
+  const url = process.env.DATABASE_URL as string
+  // Render Postgres URLs and similar Postgres endpoints can be used with 'postgres' client.
+  // Neon specific URLs often include "neon" in the hostname; prefer neon for Neon URLs.
+  const isNeon = url.includes("neon") || url.includes("neondatabase")
+
+  if (isNeon) {
+    sql = neon(url)
+  } else {
+    // Use postgres client for generic Postgres (Render) connections.
+    // The `postgres` package returns a function that can be used with tagged templates
+    // but also supports standard query methods. We'll expose a minimal wrapper that
+    // supports using the same tagged-template style this codebase currently expects.
+    const sqlClient = postgres(url, { ssl: { rejectUnauthorized: false } })
+
+    sql = (strings: TemplateStringsArray, ...params: any[]) => {
+      // Build query text by interpolating $1, $2 ... and collect params
+      // This simple implementation mirrors tagged-template behavior used elsewhere.
+      let text = ""
+      const values: any[] = []
+      for (let i = 0; i < strings.length; i++) {
+        text += strings[i]
+        if (i < params.length) {
+          values.push(params[i])
+          text += `$${values.length}`
+        }
+      }
+      return sqlClient.unsafe(text, ...values)
+    }
+  }
 } else {
   // Fallback tagged-template function for local dev when DATABASE_URL isn't set.
   // Returns empty arrays or resolves basic in-memory operations used by helpers below.
