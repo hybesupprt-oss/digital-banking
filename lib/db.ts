@@ -24,6 +24,19 @@ if (usingRealDB) {
 
 export { sql }
 
+// Helper to normalize DB rows (snake_case) to application-friendly camelCase when needed
+export function normalizeUserRow(row: any) {
+  if (!row) return null
+  return {
+    ...row,
+    firstName: row.first_name ?? row.firstName,
+    lastName: row.last_name ?? row.lastName,
+    kycStatus: row.kyc_status ?? row.kycStatus,
+    isActive: row.is_active ?? row.isActive,
+    emailVerified: row.email_verified ?? row.emailVerified,
+  }
+}
+
 // Database utility functions for user management
 export async function getUserByEmail(email: string) {
   if (usingRealDB) {
@@ -59,11 +72,15 @@ export async function createUser(userData: {
   const newUser = {
     id: String(Date.now()) + Math.floor(Math.random() * 1000),
     email: userData.email,
-    first_name: userData.firstName,
-    last_name: userData.lastName,
+  first_name: userData.firstName,
+  last_name: userData.lastName,
+  // also provide camelCase fields for in-memory consumers
+  firstName: userData.firstName,
+  lastName: userData.lastName,
     phone: userData.phone || null,
     role: 'user',
     kyc_status: 'unverified',
+  kycStatus: 'unverified',
     is_active: true,
     email_verified: false
   }

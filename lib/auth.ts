@@ -1,7 +1,6 @@
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
-import { updateUserLastLogin, createAuditLog } from "./db"
-import { sql } from "./db"
+import { updateUserLastLogin, createAuditLog, getUserByEmail as dbGetUserByEmail, createUser as dbCreateUser } from "./db"
 import nodeCrypto from "crypto"
 
 export interface User {
@@ -128,26 +127,18 @@ export async function requireRole(allowedRoles: string[]): Promise<User> {
 
   return user
 }
-
 export async function getUserByEmail(email: string): Promise<User | null> {
   try {
-    const result = await sql`
-      SELECT id, email, first_name, last_name, role, kyc_status
-      FROM users 
-      WHERE email = ${email}
-      LIMIT 1
-    `
+    const row = await dbGetUserByEmail(email)
+    if (!row) return null
 
-    if (result.length === 0) return null
-
-    const user = result[0]
     return {
-      id: user.id,
-      email: user.email,
-      firstName: user.first_name,
-      lastName: user.last_name,
-      role: user.role,
-      kycStatus: user.kyc_status,
+      id: row.id,
+      email: row.email,
+      firstName: row.first_name ?? row.firstName,
+      lastName: row.last_name ?? row.lastName,
+      role: row.role,
+      kycStatus: row.kyc_status ?? row.kycStatus,
     }
   } catch (error) {
     console.error("Error fetching user by email:", error)
@@ -162,22 +153,22 @@ export async function createUser(userData: {
   passwordHash: string
 }): Promise<User | null> {
   try {
-    const result = await sql`
-      INSERT INTO users (email, first_name, last_name, password_hash, role, kyc_status)
-      VALUES (${userData.email}, ${userData.firstName}, ${userData.lastName}, ${userData.passwordHash}, 'member', 'pending')
-      RETURNING id, email, first_name, last_name, role, kyc_status
-    `
+    const row = await dbCreateUser({
+      email: userData.email,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      phone: undefined,
+    } as any)
 
-    if (result.length === 0) return null
+    if (!row) return null
 
-    const user = result[0]
     return {
-      id: user.id,
-      email: user.email,
-      firstName: user.first_name,
-      lastName: user.last_name,
-      role: user.role,
-      kycStatus: user.kyc_status,
+      id: row.id,
+      email: row.email,
+      firstName: row.first_name ?? row.firstName,
+      lastName: row.last_name ?? row.lastName,
+      role: row.role,
+      kycStatus: row.kyc_status ?? row.kycStatus,
     }
   } catch (error) {
     console.error("Error creating user:", error)
