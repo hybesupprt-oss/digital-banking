@@ -62,7 +62,7 @@ export function HeroSection() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-accent/20 blur-2xl" />
               <img
-                src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1200&q=80"
+                src="/hero-handshake-1200.jpg"
                 alt="Close-up handshake over documents, symbolizing trust and partnership"
                 className="relative rounded-2xl shadow-2xl object-cover max-h-[420px]"
               />
