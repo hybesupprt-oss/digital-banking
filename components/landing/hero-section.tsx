@@ -12,7 +12,7 @@ export function HeroSection() {
             <div className="space-y-4">
               <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 Banking Built for Your
-                <span className="block text-accent"> Financial Future</span>
+                <span className="block text-primary-foreground"> Financial Future</span>
               </h1>
               <p className="text-pretty text-xl text-primary-foreground/90 sm:text-2xl">
                 Experience banking that puts your goals first. From everyday checking to investment planning, First City Credit Union delivers the tools and expertise you need to succeed.
