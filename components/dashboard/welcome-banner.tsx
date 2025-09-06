@@ -54,7 +54,7 @@ export function WelcomeBanner({ user }: WelcomeBannerProps) {
             variant="ghost"
             size="sm"
             onClick={() => setIsVisible(false)}
-            className="text-primary-foreground hover:bg-primary-foreground/10"
+            className="text-background hover:bg-foreground/10"
           >
             <X className="h-4 w-4" />
           </Button>
