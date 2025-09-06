@@ -123,3 +123,72 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Page transition and click ripple styles */
+.transition-overlay-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.ripple,
+.nav-overlay {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(1);
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  will-change: transform, opacity;
+}
+
+.ripple {
+  animation: ripple-scale 3000ms cubic-bezier(.22,.9,.4,1);
+  opacity: 0.9;
+}
+
+.nav-overlay {
+  width: 8px;
+  height: 8px;
+  animation: nav-expand 3000ms cubic-bezier(.2,.9,.3,1);
+  background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 60%, white));
+  opacity: 0.98;
+}
+
+@keyframes ripple-scale {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9 }
+  30% { transform: translate(-50%, -50%) scale(12); opacity: 0.75 }
+  70% { transform: translate(-50%, -50%) scale(36); opacity: 0.25 }
+  100% { transform: translate(-50%, -50%) scale(60); opacity: 0 }
+}
+
+@keyframes nav-expand {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1 }
+  25% { transform: translate(-50%, -50%) scale(8); opacity: 0.98 }
+  60% { transform: translate(-50%, -50%) scale(36); opacity: 0.5 }
+  100% { transform: translate(-50%, -50%) scale(120); opacity: 0 }
+}
+
+/* make sure content fades slightly during nav to emphasize overlay */
+.nav-fade-enter,
+.nav-fade-exit {
+  transition: opacity 240ms ease;
+}
+
+/* Dark-mode tweaks: subtler, darker gradients and reduced opacity */
+.dark .transition-overlay-container .ripple {
+  /* make the ripple darker and less intrusive in dark mode */
+  background: color-mix(in srgb, var(--color-primary) 14%, black);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+  opacity: 0.6;
+}
+
+.dark .transition-overlay-container .nav-overlay {
+  /* darker gradient, reduced brightness, slightly more subtle */
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 56%, black), color-mix(in srgb, var(--color-primary) 30%, black));
+  filter: brightness(0.9) saturate(0.9);
+  opacity: 0.88;
+}
+

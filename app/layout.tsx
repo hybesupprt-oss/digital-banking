@@ -4,6 +4,8 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Suspense } from "react"
 import "./globals.css"
+import PageTransitions from "../components/transition/page-transitions"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "First City Credit Union - Digital Banking",
@@ -19,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={null}>
+          <PageTransitions>{children}</PageTransitions>
+        </Suspense>
+        <Analytics />
       </body>
     </html>
   )
