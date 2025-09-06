@@ -52,7 +52,7 @@ export function FAQSection() {
       category: "Cards",
       question: "How do I report a lost or stolen debit card?",
       answer:
-        "Report lost or stolen cards immediately by calling 1-800-WELLS-FARGO or using the mobile app. We'll cancel your card and rush a replacement to you, typically within 1-2 business days.",
+        "Report lost or stolen cards immediately by calling 1-800-FIRST-CITY or using the mobile app. We'll cancel your card and rush a replacement to you, typically within 1-2 business days.",
     },
   ]
 
