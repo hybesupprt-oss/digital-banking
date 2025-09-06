@@ -5,7 +5,7 @@ import Link from "next/link"
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')] opacity-20 bg-cover bg-center" />
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1600&q=80')] opacity-20 bg-cover bg-center" />
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col justify-center space-y-8">
@@ -62,8 +62,8 @@ export function HeroSection() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-accent/20 blur-2xl" />
               <img
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
-                alt="Professionally dressed people discussing banking solutions"
+                src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1200&q=80"
+                alt="Close-up handshake over documents, symbolizing trust and partnership"
                 className="relative rounded-2xl shadow-2xl object-cover max-h-[420px]"
               />
             </div>
