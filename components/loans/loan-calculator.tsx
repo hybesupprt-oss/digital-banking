@@ -82,7 +82,7 @@ export function LoanCalculator() {
             </Select>
           </div>
 
-          <Button onClick={calculatePayment} className="w-full bg-primary hover:bg-primary/90">
+          <Button onClick={calculatePayment} className="w-full bg-foreground text-background hover:bg-foreground/90">
             Calculate Payment
           </Button>
 
