@@ -6,7 +6,13 @@ let sql: any
 
 if (usingRealDB) {
   const url = process.env.DATABASE_URL as string
-  const sqlClient = postgres(url, { ssl: { rejectUnauthorized: false } })
+  // Configure TLS: if a CA is provided via DB_SSL_CA, enable strict verification.
+  const useCA = Boolean(process.env.DB_SSL_CA)
+  const sslOptions: any = useCA
+    ? { ca: process.env.DB_SSL_CA, rejectUnauthorized: true }
+    : { rejectUnauthorized: false }
+
+  const sqlClient = postgres(url, { ssl: sslOptions })
 
   sql = (strings: TemplateStringsArray, ...params: any[]) => {
     let text = ""
