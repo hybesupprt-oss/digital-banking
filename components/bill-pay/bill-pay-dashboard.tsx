@@ -127,7 +127,7 @@ export function BillPayDashboard() {
             <CardTitle className="text-xl">Payment Center</CardTitle>
             <CardDescription>Manage your bills and scheduled payments</CardDescription>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
+          <Button className="bg-foreground text-background hover:bg-foreground/90">
             <Plus className="w-4 h-4 mr-2" />
             New Payment
           </Button>
