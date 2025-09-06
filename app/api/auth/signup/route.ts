@@ -3,7 +3,7 @@ import { createUser, getUserByEmail, createSession } from "@/lib/auth"
 
 export async function POST(request: NextRequest) {
   try {
-    const { firstName, lastName, email, phone, password } = await request.json()
+  const { firstName, lastName, email, password } = await request.json()
 
     // Validate input
     if (!firstName || !lastName || !email || !password) {
@@ -21,25 +21,32 @@ export async function POST(request: NextRequest) {
     }
 
     // Create new user
+    // NOTE: For demo only — derive a simple password hash placeholder.
+    const passwordHash = `demohash_${Buffer.from(password).toString("hex").slice(0,32)}`
+
     const newUser = await createUser({
       email: email.toLowerCase(),
       firstName,
       lastName,
-      phone,
+      passwordHash,
     })
 
     // TODO: In production, hash the password and store it
     // For demo purposes, we're not storing passwords
 
-    // Create session for the new user
+    if (!newUser) {
+      return NextResponse.json({ error: "Failed to create user" }, { status: 500 })
+    }
+
+    // Create session for the new user (normalize to camelCase)
     const sessionId = await createSession(
       {
         id: newUser.id,
         email: newUser.email,
-        firstName: newUser.first_name,
-        lastName: newUser.last_name,
+        firstName: (newUser as any).firstName ?? newUser.first_name,
+        lastName: (newUser as any).lastName ?? newUser.last_name,
         role: newUser.role,
-        kycStatus: newUser.kyc_status,
+        kycStatus: (newUser as any).kycStatus ?? newUser.kyc_status,
       },
       request,
     )
@@ -49,10 +56,10 @@ export async function POST(request: NextRequest) {
       user: {
         id: newUser.id,
         email: newUser.email,
-        firstName: newUser.first_name,
-        lastName: newUser.last_name,
+        firstName: (newUser as any).firstName ?? newUser.first_name,
+        lastName: (newUser as any).lastName ?? newUser.last_name,
         role: newUser.role,
-        kycStatus: newUser.kyc_status,
+        kycStatus: (newUser as any).kycStatus ?? newUser.kyc_status,
       },
     })
   } catch (error) {
