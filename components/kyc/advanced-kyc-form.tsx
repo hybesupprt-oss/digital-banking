@@ -185,7 +185,7 @@ export function AdvancedKycForm({ userId, onComplete }: AdvancedKycFormProps) {
       const result = {
         status: "completed",
         riskLevel: riskAssessment.riskLevel,
-        verificationId: crypto.randomUUID(),
+  verificationId: (await import('crypto')).randomUUID(),
         completedAt: new Date(),
       }
 

@@ -144,7 +144,7 @@ export class BiometricVerificationService {
       await new Promise((resolve) => setTimeout(resolve, 4000))
 
       const verification: DocumentVerification = {
-        id: crypto.randomUUID(),
+  id: (await import('crypto')).randomUUID(),
         userId: "current-user", // Would be passed as parameter
         documentType: this.detectDocumentType(documentImage.name),
         extractedData: {

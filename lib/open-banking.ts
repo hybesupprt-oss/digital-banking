@@ -1,4 +1,5 @@
 import { sql } from "./db"
+import nodeCrypto from "crypto"
 
 export interface OpenBankingProvider {
   id: string

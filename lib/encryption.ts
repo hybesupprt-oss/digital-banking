@@ -18,13 +18,12 @@ export interface EncryptedData {
 export function encryptPII(data: string): EncryptedData {
   const key = Buffer.from(MASTER_KEY, "hex")
   const iv = crypto.randomBytes(IV_LENGTH)
-  const cipher = crypto.createCipher(ALGORITHM, key)
+  const cipher = crypto.createCipheriv(ALGORITHM, key, iv)
   cipher.setAAD(Buffer.from("banking-pii"))
 
-  let encrypted = cipher.update(data, "utf8", "hex")
-  encrypted += cipher.final("hex")
-
+  const encryptedBuf = Buffer.concat([cipher.update(Buffer.from(data, "utf8")), cipher.final()])
   const tag = cipher.getAuthTag()
+  const encrypted = encryptedBuf.toString("hex")
 
   return {
     encrypted,
@@ -35,14 +34,13 @@ export function encryptPII(data: string): EncryptedData {
 
 export function decryptPII(encryptedData: EncryptedData): string {
   const key = Buffer.from(MASTER_KEY, "hex")
-  const decipher = crypto.createDecipher(ALGORITHM, key)
+  const iv = Buffer.from(encryptedData.iv, "hex")
+  const decipher = crypto.createDecipheriv(ALGORITHM, key, iv)
   decipher.setAAD(Buffer.from("banking-pii"))
   decipher.setAuthTag(Buffer.from(encryptedData.tag, "hex"))
 
-  let decrypted = decipher.update(encryptedData.encrypted, "hex", "utf8")
-  decrypted += decipher.final("utf8")
-
-  return decrypted
+  const decryptedBuf = Buffer.concat([decipher.update(Buffer.from(encryptedData.encrypted, "hex")), decipher.final()])
+  return decryptedBuf.toString("utf8")
 }
 
 // Data masking utilities

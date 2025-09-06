@@ -1,4 +1,5 @@
 import { sql } from "./db"
+import nodeCrypto from "crypto"
 
 export interface ACHTransfer {
   id: string
@@ -59,7 +60,7 @@ export class ACHProcessor {
 
     // Create ACH transfer record
     const achTransfer: ACHTransfer = {
-      id: crypto.randomUUID(),
+      id: nodeCrypto.randomUUID(),
       ...transfer,
       status: "pending",
       createdAt: new Date(),
