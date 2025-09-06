@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.35 0.02 240); /* #4b5563 - Card text */
   --popover: oklch(1 0 0); /* #ffffff - Popover background */
   --popover-foreground: oklch(0.35 0.02 240); /* #4b5563 - Popover text */
-  --primary: oklch(0.45 0.22 15); /* #D71921 - Wells Fargo Red */
+  --primary: oklch(0.7 0.15 75); /* #D4AF37 - Brand Gold */
   --primary-foreground: oklch(1 0 0); /* #ffffff - Text on primary */
   --secondary: oklch(0.7 0.15 75); /* #D4AF37 - Gold accent */
   --secondary-foreground: oklch(0.35 0.02 240); /* #4b5563 - Text on secondary */
@@ -22,7 +22,7 @@
   --destructive-foreground: oklch(1 0 0); /* #ffffff - Text on destructive */
   --border: oklch(0.9 0.005 240); /* #e2e8f0 - Light gray border */
   --input: oklch(0.97 0.005 240); /* #f8fafc - Input background */
-  --ring: oklch(0.45 0.22 15 / 0.5); /* Wells Fargo red focus ring */
+  --ring: oklch(0.7 0.15 75 / 0.5); /* Brand gold focus ring */
   --chart-1: oklch(0.45 0.22 15); /* #D71921 - Chart color 1 */
   --chart-2: oklch(0.7 0.15 75); /* #D4AF37 - Chart color 2 */
   --chart-3: oklch(0.35 0.02 240); /* #4b5563 - Chart color 3 */
@@ -31,12 +31,12 @@
   --radius: 0.5rem;
   --sidebar: oklch(1 0 0); /* #ffffff - Sidebar background */
   --sidebar-foreground: oklch(0.35 0.02 240); /* #4b5563 - Sidebar text */
-  --sidebar-primary: oklch(0.45 0.22 15); /* #D71921 - Sidebar primary */
+  --sidebar-primary: oklch(0.7 0.15 75); /* #D4AF37 - Sidebar primary (brand gold) */
   --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff - Text on sidebar primary */
   --sidebar-accent: oklch(0.7 0.15 75); /* #D4AF37 - Sidebar accent */
   --sidebar-accent-foreground: oklch(0.35 0.02 240); /* #4b5563 - Text on sidebar accent */
   --sidebar-border: oklch(0.9 0.005 240); /* #e2e8f0 - Sidebar border */
-  --sidebar-ring: oklch(0.45 0.22 15 / 0.5); /* Wells Fargo red sidebar focus ring */
+  --sidebar-ring: oklch(0.7 0.15 75 / 0.5); /* Brand gold sidebar focus ring */
 }
 
 .dark {
@@ -46,7 +46,7 @@
   --card-foreground: oklch(0.95 0.01 240); /* Light card text */
   --popover: oklch(0.15 0.02 240); /* Dark popover */
   --popover-foreground: oklch(0.95 0.01 240); /* Light popover text */
-  --primary: oklch(0.55 0.22 15); /* Brighter Wells Fargo red in dark */
+  --primary: oklch(0.75 0.15 75); /* Brighter brand gold in dark */
   --primary-foreground: oklch(0.1 0.02 240); /* Dark text on primary */
   --secondary: oklch(0.75 0.15 75); /* Brighter gold in dark */
   --secondary-foreground: oklch(0.1 0.02 240); /* Dark text on secondary */
@@ -58,7 +58,7 @@
   --destructive-foreground: oklch(0.95 0.01 240); /* Light text on destructive */
   --border: oklch(0.25 0.03 240); /* Dark border */
   --input: oklch(0.2 0.02 240); /* Dark input */
-  --ring: oklch(0.55 0.22 15 / 0.5); /* Dark Wells Fargo red focus ring */
+  --ring: oklch(0.75 0.15 75 / 0.5); /* Dark brand gold focus ring */
   --chart-1: oklch(0.55 0.22 15); /* Chart colors for dark mode */
   --chart-2: oklch(0.75 0.15 75);
   --chart-3: oklch(0.7 0.02 240);
@@ -66,12 +66,12 @@
   --chart-5: oklch(0.15 0.02 240);
   --sidebar: oklch(0.12 0.02 240); /* Dark sidebar */
   --sidebar-foreground: oklch(0.95 0.01 240); /* Light sidebar text */
-  --sidebar-primary: oklch(0.55 0.22 15); /* Bright Wells Fargo red sidebar primary */
+  --sidebar-primary: oklch(0.75 0.15 75); /* Bright brand gold sidebar primary */
   --sidebar-primary-foreground: oklch(0.1 0.02 240); /* Dark text on sidebar primary */
   --sidebar-accent: oklch(0.75 0.15 75); /* Bright gold sidebar accent */
   --sidebar-accent-foreground: oklch(0.1 0.02 240); /* Dark text on sidebar accent */
   --sidebar-border: oklch(0.25 0.03 240); /* Dark sidebar border */
-  --sidebar-ring: oklch(0.55 0.22 15 / 0.5); /* Dark Wells Fargo red sidebar focus ring */
+  --sidebar-ring: oklch(0.75 0.15 75 / 0.5); /* Dark brand gold sidebar focus ring */
 }
 
 @theme inline {
