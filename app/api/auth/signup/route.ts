@@ -43,10 +43,10 @@ export async function POST(request: NextRequest) {
       {
         id: newUser.id,
         email: newUser.email,
-        firstName: (newUser as any).firstName ?? newUser.first_name,
-        lastName: (newUser as any).lastName ?? newUser.last_name,
+        firstName: (newUser as any).firstName ?? (newUser as any)["first_name"],
+        lastName: (newUser as any).lastName ?? (newUser as any)["last_name"],
         role: newUser.role,
-        kycStatus: (newUser as any).kycStatus ?? newUser.kyc_status,
+        kycStatus: (newUser as any).kycStatus ?? (newUser as any)["kyc_status"],
       },
       request,
     )
@@ -56,10 +56,10 @@ export async function POST(request: NextRequest) {
       user: {
         id: newUser.id,
         email: newUser.email,
-        firstName: (newUser as any).firstName ?? newUser.first_name,
-        lastName: (newUser as any).lastName ?? newUser.last_name,
+        firstName: (newUser as any).firstName ?? (newUser as any)["first_name"],
+        lastName: (newUser as any).lastName ?? (newUser as any)["last_name"],
         role: newUser.role,
-        kycStatus: (newUser as any).kycStatus ?? newUser.kyc_status,
+        kycStatus: (newUser as any).kycStatus ?? (newUser as any)["kyc_status"],
       },
     })
   } catch (error) {

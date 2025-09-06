@@ -42,8 +42,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid account selection" }, { status: 400 })
     }
 
-    const fromAccount = accountsResult.find((acc) => acc.id === fromAccountId)
-    const toAccount = accountsResult.find((acc) => acc.id === toAccountId)
+  const fromAccount = accountsResult.find((acc: any) => acc.id === fromAccountId)
+  const toAccount = accountsResult.find((acc: any) => acc.id === toAccountId)
 
     if (!fromAccount || !toAccount) {
       return NextResponse.json({ error: "Account not found" }, { status: 404 })
