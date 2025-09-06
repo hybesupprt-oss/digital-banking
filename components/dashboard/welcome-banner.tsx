@@ -44,7 +44,7 @@ export function WelcomeBanner({ user }: WelcomeBannerProps) {
               </div>
             </div>
 
-            <Button variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+            <Button variant="secondary" className="bg-foreground text-background hover:bg-foreground/90">
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
