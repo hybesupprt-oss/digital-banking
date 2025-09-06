@@ -35,7 +35,7 @@ export function CTASection() {
           <div className="text-center">
             <Phone className="h-8 w-8 text-accent mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Call Us</h3>
-            <p className="text-primary-foreground/80">1-800-WELLS-FARGO</p>
+            <p className="text-primary-foreground/80">1-800-FIRST-CITY</p>
             <p className="text-sm text-primary-foreground/60">Available 24/7</p>
           </div>
           <div className="text-center">
