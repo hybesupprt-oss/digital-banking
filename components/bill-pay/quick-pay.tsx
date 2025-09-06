@@ -75,7 +75,7 @@ export function QuickPay() {
             </Select>
           </div>
 
-          <Button className="w-full bg-primary hover:bg-primary/90">
+          <Button className="w-full bg-foreground text-background hover:bg-foreground/90">
             <Calendar className="w-4 h-4 mr-2" />
             Schedule Payment
           </Button>
