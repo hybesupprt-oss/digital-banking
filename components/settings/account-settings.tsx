@@ -188,7 +188,7 @@ export function AccountSettings() {
         </CardContent>
       </Card>
 
-      <Button className="w-full bg-primary hover:bg-primary/90">
+      <Button className="w-full bg-foreground text-background hover:bg-foreground/90">
         <Save className="w-4 h-4 mr-2" />
         Save Changes
       </Button>
