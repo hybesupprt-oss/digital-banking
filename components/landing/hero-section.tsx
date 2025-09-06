@@ -20,7 +20,7 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-foreground text-background hover:bg-foreground/90">
                 <Link href="/signup">
                   Get Started Today
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -30,7 +30,7 @@ export function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+                className="border-background/20 text-background hover:bg-foreground/10 bg-transparent"
               >
                 <Link href="/login">Sign In to Your Account</Link>
               </Button>
