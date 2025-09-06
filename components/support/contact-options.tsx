@@ -10,7 +10,7 @@ export function ContactOptions() {
       icon: Phone,
       title: "Phone Support",
       description: "Speak with a representative",
-      details: "1-800-WELLS-FARGO",
+      details: "1-800-FIRST-CITY",
       availability: "24/7",
       action: "Call Now",
     },

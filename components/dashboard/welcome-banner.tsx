@@ -44,7 +44,7 @@ export function WelcomeBanner({ user }: WelcomeBannerProps) {
               </div>
             </div>
 
-            <Button variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+            <Button variant="secondary" className="bg-foreground text-background hover:bg-foreground/90">
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -54,7 +54,7 @@ export function WelcomeBanner({ user }: WelcomeBannerProps) {
             variant="ghost"
             size="sm"
             onClick={() => setIsVisible(false)}
-            className="text-primary-foreground hover:bg-primary-foreground/10"
+            className="text-background hover:bg-foreground/10"
           >
             <X className="h-4 w-4" />
           </Button>

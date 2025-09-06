@@ -15,7 +15,7 @@ export function CTASection() {
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+          <Button asChild size="lg" className="bg-foreground text-background hover:bg-foreground/90">
             <Link href="/signup">
               Open Account Now
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -25,7 +25,7 @@ export function CTASection() {
             asChild
             variant="outline"
             size="lg"
-            className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+            className="border-background/20 text-background hover:bg-foreground/10 bg-transparent"
           >
             <Link href="/login">Access Your Account</Link>
           </Button>
@@ -35,7 +35,7 @@ export function CTASection() {
           <div className="text-center">
             <Phone className="h-8 w-8 text-accent mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Call Us</h3>
-            <p className="text-primary-foreground/80">1-800-WELLS-FARGO</p>
+            <p className="text-primary-foreground/80">1-800-FIRST-CITY</p>
             <p className="text-sm text-primary-foreground/60">Available 24/7</p>
           </div>
           <div className="text-center">

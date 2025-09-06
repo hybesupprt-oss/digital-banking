@@ -5,23 +5,22 @@ import Link from "next/link"
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground">
-      <div className="absolute inset-0 bg-[url('/placeholder-0dv8g.png')] opacity-10" />
+      <div className="absolute inset-0 bg-[url('/hero-handshake.jpg')] opacity-20 bg-cover bg-center" />
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-4">
               <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 Banking Built for Your
-                <span className="block text-accent"> Financial Future</span>
+                <span className="block text-primary-foreground"> Financial Future</span>
               </h1>
               <p className="text-pretty text-xl text-primary-foreground/90 sm:text-2xl">
-                Experience banking that puts your goals first. From everyday checking to investment planning, Wells
-                Fargo delivers the tools and expertise you need to succeed.
+                Experience banking that puts your goals first. From everyday checking to investment planning, First City Credit Union delivers the tools and expertise you need to succeed.
               </p>
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-foreground text-background hover:bg-foreground/90">
                 <Link href="/signup">
                   Get Started Today
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -31,7 +30,7 @@ export function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+                className="border-background/20 text-background hover:bg-foreground/10 bg-transparent"
               >
                 <Link href="/login">Sign In to Your Account</Link>
               </Button>
@@ -63,9 +62,9 @@ export function HeroSection() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-accent/20 blur-2xl" />
               <img
-                src="/placeholder-hxw6f.png"
-                alt="First City Credit Union Digital Banking Platform"
-                className="relative rounded-2xl shadow-2xl"
+                src="/hero-handshake-1200.jpg"
+                alt="Close-up handshake over documents, symbolizing trust and partnership"
+                className="relative rounded-2xl shadow-2xl object-cover max-h-[420px]"
               />
             </div>
           </div>

@@ -96,7 +96,7 @@ export function LoginForm() {
 
       <Button
         type="submit"
-        className="w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground"
+        className="w-full h-11 bg-foreground text-background hover:bg-foreground/90"
         disabled={isLoading}
       >
         {isLoading ? (
@@ -113,7 +113,7 @@ export function LoginForm() {
       </Button>
 
       <div className="text-center pt-4">
-        <Button variant="link" className="text-sm text-primary hover:text-primary/80">
+        <Button variant="link" className="text-sm text-background hover:text-background/80">
           Forgot your password?
         </Button>
       </div>
@@ -122,7 +122,7 @@ export function LoginForm() {
         <p className="text-sm text-muted-foreground mb-2">New to First City Credit Union?</p>
         <Button
           variant="outline"
-          className="w-full bg-transparent border-border hover:bg-muted"
+          className="w-full bg-transparent border-border hover:bg-foreground/10"
           onClick={() => router.push("/signup")}
         >
           Open an Account

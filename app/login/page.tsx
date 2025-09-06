@@ -24,7 +24,7 @@ export default function LoginPage() {
 
         <div className="mt-6 text-center text-sm text-muted-foreground">
           <p>
-            Need help? Contact us at <span className="font-medium text-foreground">support@wellsfargo.com</span>
+            Need help? Contact us at <span className="font-medium text-foreground">support@firstcitycu.com</span>
           </p>
           <p className="mt-2">© 2024 First City Credit Union Bank, N.A. All rights reserved.</p>
         </div>

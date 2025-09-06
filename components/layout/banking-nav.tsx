@@ -31,9 +31,11 @@ export function BankingNav() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/dashboard" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-sm">FC</span>
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F44ae5eb1081644219977cce4891b7752%2F02932fabb0af4e07bbcffc50c2cc28f6?format=webp&width=128"
+                alt="First City Credit Union logo"
+                className="h-8 w-auto"
+              />
               <span className="font-bold text-lg">First City Credit Union</span>
             </Link>
           </div>

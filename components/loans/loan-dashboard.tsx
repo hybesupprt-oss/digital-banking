@@ -125,7 +125,7 @@ export function LoanDashboard() {
             <CardTitle className="text-xl">Loan Center</CardTitle>
             <CardDescription>Manage your loans and credit applications</CardDescription>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
+          <Button className="bg-foreground text-background hover:bg-foreground/90">
             <Plus className="w-4 h-4 mr-2" />
             Apply for Loan
           </Button>

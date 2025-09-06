@@ -155,7 +155,7 @@ export function AccountOverview({ userId }: AccountOverviewProps) {
                   <Eye className="h-4 w-4 mr-2" />
                   View Details
                 </Button>
-                <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90 font-semibold">
+                <Button size="sm" className="flex-1 bg-foreground text-background hover:bg-foreground/90 font-semibold">
                   {account.accountType === "credit_card" ? (
                     <>
                       <ArrowUpRight className="h-4 w-4 mr-2" />
