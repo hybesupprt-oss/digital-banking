@@ -104,7 +104,7 @@ export function LoanProducts() {
                   <Button variant="outline" size="sm" className="flex-1 bg-transparent">
                     Learn More
                   </Button>
-                  <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                  <Button size="sm" className="flex-1 bg-foreground text-background hover:bg-foreground/90">
                     Apply Now
                   </Button>
                 </div>
