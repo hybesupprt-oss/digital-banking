@@ -5,33 +5,31 @@ import { Button } from "@/components/ui/button"
 import { Download, FileText, Settings, CreditCard, Phone } from "lucide-react"
 
 export function AccountActions() {
+  const actions = [
+    { icon: Download, label: "Download Statements" },
+    { icon: FileText, label: "Tax Documents" },
+    { icon: CreditCard, label: "Order Checks" },
+    { icon: Settings, label: "Account Preferences" },
+    { icon: Phone, label: "Contact Support" },
+  ]
+
   return (
     <Card>
       <CardHeader>
         <CardTitle className="text-lg">Quick Actions</CardTitle>
         <CardDescription>Manage your accounts efficiently</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-3">
-        <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
-          <Download className="w-4 h-4 mr-2" />
-          Download Statements
-        </Button>
-        <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
-          <FileText className="w-4 h-4 mr-2" />
-          Tax Documents
-        </Button>
-        <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
-          <CreditCard className="w-4 h-4 mr-2" />
-          Order Checks
-        </Button>
-        <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
-          <Settings className="w-4 h-4 mr-2" />
-          Account Preferences
-        </Button>
-        <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
-          <Phone className="w-4 h-4 mr-2" />
-          Contact Support
-        </Button>
+      <CardContent className="grid grid-cols-2 gap-4">
+        {actions.map((action, index) => (
+          <Button
+            key={index}
+            variant="outline"
+            className="flex flex-col h-24 items-center justify-center space-y-2 text-center p-4 transition-all hover:bg-accent hover:text-accent-foreground"
+          >
+            <action.icon className="w-6 h-6" />
+            <span className="text-xs font-medium">{action.label}</span>
+          </Button>
+        ))}
       </CardContent>
     </Card>
   )

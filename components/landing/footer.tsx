@@ -9,7 +9,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F44ae5eb1081644219977cce4891b7752%2F02932fabb0af4e07bbcffc50c2cc28f6?format=webp&width=128"
+                src="/logo.svg"
                 alt="First City Credit Union logo"
                 className="h-8 w-auto"
               />
