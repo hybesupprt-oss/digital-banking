@@ -21,10 +21,12 @@ export function encryptPII(data: string): EncryptedData {
     // cast to any to satisfy TypeScript overloads while preserving Node runtime types
     const cipher = crypto.createCipheriv(ALGORITHM, key as any, iv as any)
   // Node Buffer -> cast to Uint8Array for TypeScript crypto typings
+  // @ts-ignore - runtime Node Buffer is valid here; project lib types cause a mismatch
   cipher.setAAD(Buffer.from("banking-pii") as unknown as Uint8Array)
 
   const chunk1 = Buffer.from(cipher.update(Buffer.from(data, "utf8") as any) as any)
   const chunk2 = Buffer.from(cipher.final() as any)
+  // @ts-ignore - Buffer.concat returns Buffer at runtime
   const encryptedBuf = Buffer.concat([chunk1, chunk2]) as Buffer
   const tag = (cipher.getAuthTag() as Buffer)
   const encrypted = encryptedBuf.toString("hex")
@@ -42,11 +44,14 @@ export function decryptPII(encryptedData: EncryptedData): string {
     // cast to any to satisfy TypeScript overloads while preserving Node runtime types
     const decipher = crypto.createDecipheriv(ALGORITHM, key as any, iv as any)
   // Node Buffer -> cast to Uint8Array for TypeScript crypto typings
+  // @ts-ignore - runtime Node Buffer is valid here; project lib types cause a mismatch
   decipher.setAAD(Buffer.from("banking-pii") as unknown as Uint8Array)
+  // @ts-ignore
   decipher.setAuthTag(Buffer.from(encryptedData.tag, "hex") as unknown as Uint8Array)
 
   const dchunk1 = Buffer.from(decipher.update(Buffer.from(encryptedData.encrypted, "hex") as any) as any)
   const dchunk2 = Buffer.from(decipher.final() as any)
+  // @ts-ignore - Buffer.concat returns Buffer at runtime
   const decryptedBuf = Buffer.concat([dchunk1, dchunk2]) as Buffer
   return decryptedBuf.toString("utf8")
 }
