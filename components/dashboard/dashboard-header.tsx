@@ -68,28 +68,28 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
           <nav className="hidden md:flex items-center space-x-8">
             <Button
               variant="ghost"
-              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              className="text-background hover:bg-foreground/10 font-semibold px-4 py-2"
               onClick={() => router.push("/dashboard")}
             >
               Accounts
             </Button>
             <Button
               variant="ghost"
-              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              className="text-background hover:bg-foreground/10 font-semibold px-4 py-2"
               onClick={() => router.push("/transfer")}
             >
               Transfer Money
             </Button>
             <Button
               variant="ghost"
-              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              className="text-background hover:bg-foreground/10 font-semibold px-4 py-2"
               onClick={() => router.push("/transactions")}
             >
               Transactions
             </Button>
             <Button
               variant="ghost"
-              className="text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-4 py-2"
+              className="text-background hover:bg-foreground/10 font-semibold px-4 py-2"
             >
               Services
             </Button>
@@ -97,7 +97,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10 p-2">
+            <Button variant="ghost" size="sm" className="text-background hover:bg-foreground/10 p-2">
               <Bell className="h-5 w-5" />
             </Button>
 
@@ -106,7 +106,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="flex items-center space-x-3 text-primary-foreground hover:bg-primary-foreground/10 px-3 py-2"
+                  className="flex items-center space-x-3 text-background hover:bg-foreground/10 px-3 py-2"
                 >
                   <Avatar className="h-10 w-10 border-2 border-accent">
                     <AvatarFallback className="bg-accent text-accent-foreground font-bold text-lg">
@@ -157,7 +157,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden text-primary-foreground"
+              className="md:hidden text-background"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -171,28 +171,28 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
             <nav className="flex flex-col space-y-3">
               <Button
                 variant="ghost"
-                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                className="justify-start text-background hover:bg-foreground/10 font-semibold py-3"
                 onClick={() => router.push("/dashboard")}
               >
                 Accounts
               </Button>
               <Button
                 variant="ghost"
-                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                className="justify-start text-background hover:bg-foreground/10 font-semibold py-3"
                 onClick={() => router.push("/transfer")}
               >
                 Transfer Money
               </Button>
               <Button
                 variant="ghost"
-                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                className="justify-start text-background hover:bg-foreground/10 font-semibold py-3"
                 onClick={() => router.push("/transactions")}
               >
                 Transactions
               </Button>
               <Button
                 variant="ghost"
-                className="justify-start text-primary-foreground hover:bg-primary-foreground/10 font-semibold py-3"
+                className="justify-start text-background hover:bg-foreground/10 font-semibold py-3"
               >
                 Services
               </Button>
