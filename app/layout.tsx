@@ -7,6 +7,7 @@ import "./globals.css"
 import "../styles/globals.css"
 import dynamic from "next/dynamic"
 const PageTransitions = dynamic(() => import("../components/transition/page-transitions"), { ssr: false })
+const FetchSafety = dynamic(() => import("../components/init/fetch-safety"), { ssr: false })
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
