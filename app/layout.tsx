@@ -4,8 +4,10 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Suspense } from "react"
 import "./globals.css"
+import "../styles/globals.css"
 import dynamic from "next/dynamic"
 const PageTransitions = dynamic(() => import("../components/transition/page-transitions"), { ssr: false })
+const FetchSafety = dynamic(() => import("../components/init/fetch-safety"), { ssr: false })
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
@@ -22,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <FetchSafety />
         <Suspense fallback={null}>
           <PageTransitions>{children}</PageTransitions>
         </Suspense>
