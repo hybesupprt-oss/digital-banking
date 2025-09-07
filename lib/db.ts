@@ -87,17 +87,20 @@ export async function createUser(userData: {
   const newUser = {
     id: String(Date.now()) + Math.floor(Math.random() * 1000),
     email: userData.email,
-  first_name: userData.firstName,
-  last_name: userData.lastName,
-  // also provide camelCase fields for in-memory consumers
-  firstName: userData.firstName,
-  lastName: userData.lastName,
+    first_name: userData.firstName,
+    last_name: userData.lastName,
+    // also provide camelCase fields for in-memory consumers
+    firstName: userData.firstName,
+    lastName: userData.lastName,
     phone: userData.phone || null,
-    role: 'user',
-    kyc_status: 'unverified',
-  kycStatus: 'unverified',
+    // default to member role to match application types
+    role: 'member',
+    // default KYC status that exists in the app
+    kyc_status: 'pending',
+    kycStatus: 'pending',
     is_active: true,
-    email_verified: false
+    email_verified: false,
+    emailVerified: false
   }
   mockDB.users.push(newUser)
   return newUser
